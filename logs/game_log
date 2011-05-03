@@ -1,0 +1,57 @@
+# Logfile created on Mon Jul 02 17:03:34 -0500 2007 by /
+I, [2007-07-02 17:03:34 #11843]  INFO -- : Resetting time to 75000
+I, [2007-07-02 17:03:34 #11843]  INFO -- : loaded Start
+I, [2007-07-02 17:03:34 #11843]  INFO -- : loaded Entrance
+I, [2007-07-02 17:03:34 #11843]  INFO -- : loaded Hall
+I, [2007-07-02 17:03:34 #11843]  INFO -- : loaded Garden
+I, [2007-07-02 17:03:34 #11843]  INFO -- : loaded Dank Cellar
+I, [2007-07-02 17:03:34 #11843]  INFO -- : loaded a non-descript door
+I, [2007-07-02 17:03:34 #11843]  INFO -- : loaded a door
+I, [2007-07-02 17:03:34 #11843]  INFO -- : loaded a crack in the wall
+I, [2007-07-02 17:03:34 #11843]  INFO -- : loaded a laundry chute
+I, [2007-07-02 17:03:34 #11843]  INFO -- : loaded a cellar door
+I, [2007-07-02 17:03:34 #11843]  INFO -- : loaded Coin
+I, [2007-07-02 17:04:06 #11843]  INFO -- : saved test
+I, [2007-07-02 17:04:06 #11843]  INFO -- : saved Start
+I, [2007-07-02 17:04:22 #11848]  INFO -- : Resetting time to 107000
+I, [2007-07-02 17:04:22 #11848]  INFO -- : loaded Start
+I, [2007-07-02 17:04:22 #11848]  INFO -- : loaded Entrance
+I, [2007-07-02 17:04:22 #11848]  INFO -- : loaded Hall
+I, [2007-07-02 17:04:22 #11848]  INFO -- : loaded Garden
+I, [2007-07-02 17:04:22 #11848]  INFO -- : loaded Dank Cellar
+I, [2007-07-02 17:04:22 #11848]  INFO -- : loaded a non-descript door
+I, [2007-07-02 17:04:22 #11848]  INFO -- : loaded a door
+I, [2007-07-02 17:04:22 #11848]  INFO -- : loaded a crack in the wall
+I, [2007-07-02 17:04:22 #11848]  INFO -- : loaded a laundry chute
+I, [2007-07-02 17:04:22 #11848]  INFO -- : loaded a cellar door
+I, [2007-07-02 17:04:22 #11848]  INFO -- : loaded Coin
+D, [2007-07-02 17:04:31 #11848] DEBUG -- : Connection wants #<LogonHandler:0x575224> to handle => initdone
+D, [2007-07-02 17:05:26 #11848] DEBUG -- : Connection wants #<LogonHandler:0x575224> to handle => new
+D, [2007-07-02 17:05:29 #11848] DEBUG -- : Connection wants #<LogonHandler:0x575224> to handle => junior
+D, [2007-07-02 17:05:31 #11848] DEBUG -- : Connection wants #<LogonHandler:0x575224> to handle => junior
+D, [2007-07-02 17:05:33 #11848] DEBUG -- : Connection wants #<MenuHandler:0x10f1134> to handle => 2
+D, [2007-07-02 17:05:34 #11848] DEBUG -- : Connection wants #<NewCharacterHandler:0x10ede80> to handle => 1
+D, [2007-07-02 17:05:37 #11848] DEBUG -- : Connection wants #<NewCharacterHandler:0x10ede80> to handle => junior
+D, [2007-07-02 17:05:38 #11848] DEBUG -- : Connection wants #<MenuHandler:0x10f1134> to handle => 1
+D, [2007-07-02 17:05:39 #11848] DEBUG -- : Connection wants #<EnterGameHandler:0x10cbac4> to handle => 2
+E, [2007-07-02 17:05:39 #11848] ERROR -- : #<Encumbrance:0x10ac9bc> already exists and is not stackable
+E, [2007-07-02 17:05:39 #11848] ERROR -- : #<CanReceive:0x10ab06c> already exists and is not stackable
+D, [2007-07-02 17:05:43 #11848] DEBUG -- : Connection wants #<GameHandler:0x10c8c0c> to handle => n
+D, [2007-07-02 17:05:44 #11848] DEBUG -- : Connection wants #<GameHandler:0x10c8c0c> to handle => go n
+D, [2007-07-02 17:05:46 #11848] DEBUG -- : Connection wants #<GameHandler:0x10c8c0c> to handle => go w
+D, [2007-07-02 17:05:51 #11848] DEBUG -- : Connection wants #<GameHandler:0x10c8c0c> to handle => look junior
+D, [2007-07-02 17:05:54 #11848] DEBUG -- : Connection wants #<GameHandler:0x10c8c0c> to handle => g cr
+D, [2007-07-02 17:05:56 #11848] DEBUG -- : Connection wants #<GameHandler:0x10c8c0c> to handle => go cr
+D, [2007-07-02 17:05:59 #11848] DEBUG -- : Connection wants #<GameHandler:0x10c8c0c> to handle => inv
+D, [2007-07-02 17:06:00 #11848] DEBUG -- : Connection wants #<GameHandler:0x10c8c0c> to handle => status
+D, [2007-07-02 17:06:03 #11848] DEBUG -- : Connection wants #<GameHandler:0x10c8c0c> to handle => qui
+D, [2007-07-02 17:06:04 #11848] DEBUG -- : Connection wants #<GameHandler:0x10c8c0c> to handle => quit
+D, [2007-07-02 17:06:04 #11848] DEBUG -- : clear #<Encumbrance:0x10e779c> respond? true
+D, [2007-07-02 17:06:04 #11848] DEBUG -- : clear #<CanReceive:0x10e6e50> respond? true
+D, [2007-07-02 17:06:04 #11848] DEBUG -- : clear Telnet Reporter respond? false
+I, [2007-07-02 17:06:04 #11848]  INFO -- : saved junior
+D, [2007-07-02 17:06:06 #11848] DEBUG -- : Connection wants #<MenuHandler:0x10f1134> to handle => 0
+D, [2007-07-02 17:06:22 #11848] DEBUG -- : Connection wants  to handle => disconnected
+I, [2007-07-02 17:06:30 #11848]  INFO -- : saved test
+I, [2007-07-02 17:06:30 #11848]  INFO -- : saved junior
+I, [2007-07-02 17:06:30 #11848]  INFO -- : saved Start

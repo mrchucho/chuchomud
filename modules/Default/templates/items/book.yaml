@@ -1,0 +1,6 @@
+--- !ruby/object:ItemTemplate 
+name: Book
+oid: 1
+description: An old paper-back.
+properties: 
+  :weight: 10

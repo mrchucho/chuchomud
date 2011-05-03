@@ -1,0 +1,9 @@
+--- !ruby/object:ItemTemplate 
+name: Torch
+oid: 4
+description: an electric torch
+logics:
+ - LightSource
+ - RequiresPower
+properties: 
+  :weight: 5

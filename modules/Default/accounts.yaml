@@ -1,0 +1,19 @@
+--- 
+- !ruby/object:Account 
+  allowed_accounts: 3
+  chars: 
+  - 1
+  logged_in: false
+  login_time: 53000
+  name: test
+  oid: 0
+  password: test
+- !ruby/object:Account 
+  allowed_accounts: 3
+  chars: 
+  - 2
+  logged_in: false
+  login_time: 176000
+  name: junior
+  oid: 1
+  password: junior

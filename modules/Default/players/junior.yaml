@@ -1,0 +1,50 @@
+--- !ruby/object:Character 
+account: 1
+commands: 
+- status
+- visual
+- get
+- say
+- help
+- clear
+- time
+- look
+- drop
+- emote
+- inv
+- use
+- receive
+- test
+- quit
+- go
+- give
+description: A non-descript Human.
+items: []
+
+last_command: quit
+logged_in: false
+logic: 
+- !ruby/object:Encumbrance 
+  entity_id: 2
+  entity_logic: 
+  entity_type: Character
+  observer_state: false
+  stacking_rule: :exclusive
+- !ruby/object:CanReceive 
+  entity_id: 2
+  entity_logic: 
+  entity_type: Character
+  observer_state: false
+  stacking_rule: :exclusive
+name: junior
+oid: 2
+properties: 
+  :maxencumbrance: 2000
+  :life: 100
+  :encumbrance: 0
+quiet: false
+rank: 1
+region: 1
+room: 1
+template_id: 1
+verbose: true

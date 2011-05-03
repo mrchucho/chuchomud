@@ -1,0 +1,83 @@
+--- 
+- !ruby/object:Portal 
+  entries: 
+  - !ruby/object:PortalEntry 
+    end: 2
+    name: North
+    start: 1
+  - !ruby/object:PortalEntry 
+    end: 1
+    name: South
+    start: 2
+  logic: []
+
+  name: a non-descript door
+  oid: 1
+  region: 1
+  transient_logic: []
+
+- !ruby/object:Portal 
+  entries: 
+  - !ruby/object:PortalEntry 
+    end: 3
+    name: West
+    start: 2
+  - !ruby/object:PortalEntry 
+    end: 2
+    name: East
+    start: 3
+  logic: []
+
+  name: a door
+  oid: 2
+  region: 1
+  transient_logic: []
+
+- !ruby/object:Portal 
+  entries: 
+  - !ruby/object:PortalEntry 
+    end: 1
+    name: Crack
+    start: 3
+  logic: []
+
+  name: a crack in the wall
+  oid: 3
+  region: 1
+  transient_logic: []
+
+- !ruby/object:Portal 
+  entries: 
+  - !ruby/object:PortalEntry 
+    end: 1
+    name: Chute
+    start: 2
+  logic: 
+  - !ruby/object:Locked 
+    action: 
+    entity_id: 4
+    entity_logic: 
+    entity_type: Portal
+    performer: 
+  name: a laundry chute
+  oid: 4
+  region: 1
+  transient_logic: []
+
+- !ruby/object:Portal 
+  entries: 
+  - !ruby/object:PortalEntry 
+    end: 4
+    name: Cellar
+    start: 3
+  - !ruby/object:PortalEntry 
+    end: 3
+    name: Hatch
+    start: 4
+  logic: []
+
+  name: a cellar door
+  oid: 5
+  region: 1
+  transient_logic: []
+

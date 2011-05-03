@@ -1,0 +1,63 @@
+# Logfile created on Sun Oct 15 18:00:12 CDT 2006 by logger.rb/1.5.2.7
+I, [2006-10-15 18:00:12 #16761]  INFO -- : Resetting time to 0
+I, [2006-10-15 18:00:12 #16761]  INFO -- : loaded Start
+I, [2006-10-15 18:00:12 #16761]  INFO -- : loaded Entrance
+I, [2006-10-15 18:00:12 #16761]  INFO -- : loaded Hall
+I, [2006-10-15 18:00:12 #16761]  INFO -- : loaded Garden
+I, [2006-10-15 18:00:12 #16761]  INFO -- : loaded Dank Cellar
+I, [2006-10-15 18:00:12 #16761]  INFO -- : loaded a non-descript door
+I, [2006-10-15 18:00:12 #16761]  INFO -- : loaded a door
+I, [2006-10-15 18:00:12 #16761]  INFO -- : loaded a crack in the wall
+I, [2006-10-15 18:00:12 #16761]  INFO -- : loaded a laundry chute
+I, [2006-10-15 18:00:12 #16761]  INFO -- : loaded a cellar door
+I, [2006-10-15 18:00:12 #16761]  INFO -- : loaded Coin
+I, [2006-10-15 18:03:05 #16764]  INFO -- : Resetting time to 0
+I, [2006-10-15 18:03:05 #16764]  INFO -- : loaded Start
+I, [2006-10-15 18:03:05 #16764]  INFO -- : loaded Entrance
+I, [2006-10-15 18:03:05 #16764]  INFO -- : loaded Hall
+I, [2006-10-15 18:03:05 #16764]  INFO -- : loaded Garden
+I, [2006-10-15 18:03:05 #16764]  INFO -- : loaded Dank Cellar
+I, [2006-10-15 18:03:05 #16764]  INFO -- : loaded a non-descript door
+I, [2006-10-15 18:03:05 #16764]  INFO -- : loaded a door
+I, [2006-10-15 18:03:05 #16764]  INFO -- : loaded a crack in the wall
+I, [2006-10-15 18:03:05 #16764]  INFO -- : loaded a laundry chute
+I, [2006-10-15 18:03:05 #16764]  INFO -- : loaded a cellar door
+I, [2006-10-15 18:03:05 #16764]  INFO -- : loaded Coin
+I, [2006-10-15 18:03:46 #16764]  INFO -- : saved Start
+I, [2006-10-15 18:04:09 #16789]  INFO -- : Resetting time to 41000
+I, [2006-10-15 18:04:09 #16789]  INFO -- : loaded Start
+I, [2006-10-15 18:04:09 #16789]  INFO -- : loaded Entrance
+I, [2006-10-15 18:04:09 #16789]  INFO -- : loaded Hall
+I, [2006-10-15 18:04:09 #16789]  INFO -- : loaded Garden
+I, [2006-10-15 18:04:09 #16789]  INFO -- : loaded Dank Cellar
+I, [2006-10-15 18:04:09 #16789]  INFO -- : loaded a non-descript door
+I, [2006-10-15 18:04:09 #16789]  INFO -- : loaded a door
+I, [2006-10-15 18:04:09 #16789]  INFO -- : loaded a crack in the wall
+I, [2006-10-15 18:04:09 #16789]  INFO -- : loaded a laundry chute
+I, [2006-10-15 18:04:09 #16789]  INFO -- : loaded a cellar door
+I, [2006-10-15 18:04:09 #16789]  INFO -- : loaded Coin
+D, [2006-10-15 18:04:17 #16789] DEBUG -- : Connection wants #<LogonHandler:0x102c4f0> to handle => initdone
+D, [2006-10-15 18:04:18 #16789] DEBUG -- : Connection wants #<LogonHandler:0x102c4f0> to handle => test
+D, [2006-10-15 18:04:19 #16789] DEBUG -- : Connection wants #<LogonHandler:0x102c4f0> to handle => new
+D, [2006-10-15 18:04:20 #16789] DEBUG -- : Connection wants #<LogonHandler:0x102c4f0> to handle => test
+D, [2006-10-15 18:04:21 #16789] DEBUG -- : Connection wants #<LogonHandler:0x102c4f0> to handle => test
+D, [2006-10-15 18:04:22 #16789] DEBUG -- : Connection wants #<MenuHandler:0x1026b54> to handle => 2
+D, [2006-10-15 18:04:23 #16789] DEBUG -- : Connection wants #<NewCharacterHandler:0x102626c> to handle => 1
+D, [2006-10-15 18:04:24 #16789] DEBUG -- : Connection wants #<NewCharacterHandler:0x102626c> to handle => test
+D, [2006-10-15 18:04:25 #16789] DEBUG -- : Connection wants #<MenuHandler:0x1026b54> to handle => 1
+D, [2006-10-15 18:04:26 #16789] DEBUG -- : Connection wants #<EnterGameHandler:0x1024610> to handle => 1
+E, [2006-10-15 18:04:26 #16789] ERROR -- : #<Encumbrance:0x101f78c> already exists and is not stackable
+E, [2006-10-15 18:04:26 #16789] ERROR -- : #<CanReceive:0x101f674> already exists and is not stackable
+D, [2006-10-15 18:04:29 #16789] DEBUG -- : Connection wants #<GameHandler:0x1023c9c> to handle => look
+D, [2006-10-15 18:04:30 #16789] DEBUG -- : Connection wants #<GameHandler:0x1023c9c> to handle => inv
+D, [2006-10-15 18:04:31 #16789] DEBUG -- : Connection wants #<GameHandler:0x1023c9c> to handle => go n
+D, [2006-10-15 18:04:33 #16789] DEBUG -- : Connection wants #<GameHandler:0x1023c9c> to handle => go w
+D, [2006-10-15 18:04:37 #16789] DEBUG -- : Connection wants #<GameHandler:0x1023c9c> to handle => quit
+D, [2006-10-15 18:04:37 #16789] DEBUG -- : clear #<Encumbrance:0x10258e4> respond? true
+D, [2006-10-15 18:04:37 #16789] DEBUG -- : clear #<CanReceive:0x102581c> respond? true
+D, [2006-10-15 18:04:37 #16789] DEBUG -- : clear Telnet Reporter respond? false
+I, [2006-10-15 18:04:37 #16789]  INFO -- : saved test
+D, [2006-10-15 18:04:38 #16789] DEBUG -- : Connection wants #<MenuHandler:0x1026b54> to handle => 0
+D, [2006-10-15 18:04:39 #16789] DEBUG -- : Connection wants  to handle => disconnected
+I, [2006-10-15 18:04:43 #16789]  INFO -- : saved test
+I, [2006-10-15 18:04:43 #16789]  INFO -- : saved Start

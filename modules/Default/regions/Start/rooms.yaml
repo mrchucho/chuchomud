@@ -1,0 +1,87 @@
+--- 
+- !ruby/object:Room 
+  _de_attrs: 
+    :illuminated: false
+  chars: []
+
+  description: Entrance to Better MUD.
+  items: 
+  - 26
+  logic: []
+
+  name: Entrance
+  oid: 1
+  portals: 
+  - 1
+  region: 1
+  transient_logic: []
+
+- !ruby/object:Room 
+  _de_attrs: {}
+
+  chars: []
+
+  description: A long, dark hallway.
+  items: []
+
+  logic: []
+
+  name: Hall
+  oid: 2
+  portals: 
+  - 1
+  - 2
+  - 4
+  region: 1
+  transient_logic: []
+
+- !ruby/object:Room 
+  _de_attrs: {}
+
+  chars: 
+  - 8
+  description: A nice, quiet garden.
+  items: []
+
+  logic: []
+
+  name: Garden
+  oid: 3
+  portals: 
+  - 2
+  - 3
+  - 5
+  region: 1
+  transient_logic: []
+
+- !ruby/object:Room 
+  _de_attrs: {}
+
+  chars: []
+
+  description: Cobwebs hang from the ceiling of this dark, chilly cellar.
+  items: []
+
+  logic: 
+  - !ruby/object:WindyRoom 
+    action: 
+    entity_id: 4
+    entity_logic: 
+    entity_type: Room
+    performer: 
+  - !ruby/object:DarkRoom 
+    action: 
+    entity_id: 4
+    entity_logic: 
+    entity_type: Room
+    performer: 
+  name: Dank Cellar
+  observer_peers: []
+
+  oid: 4
+  portals: 
+  - 1
+  - 5
+  region: 1
+  transient_logic: []
+

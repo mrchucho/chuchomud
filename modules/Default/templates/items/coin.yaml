@@ -1,0 +1,8 @@
+--- !ruby/object:ItemTemplate 
+name: Coin
+oid: 3
+description: "# coins"
+properties: 
+  :weight: 1
+many: true
+quantity: 1

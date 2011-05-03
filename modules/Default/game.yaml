@@ -1,0 +1,12 @@
+--- !ruby/object:Game 
+running: true
+characters: []
+
+basic_timer: !ruby/object:Timer 
+  init: 1183415045413
+  start: 107000
+reg: []
+
+players: []
+
+time: 235000

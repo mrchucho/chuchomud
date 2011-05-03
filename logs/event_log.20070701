@@ -1,0 +1,76 @@
+# Logfile created on Sun Oct 15 18:00:12 CDT 2006 by logger.rb/1.5.2.7
+D, [2006-10-15 18:04:26 #16789] DEBUG -- : GameHandler::enter
+I, [2006-10-15 18:04:26 #16789]  INFO -- : Game wants to handle => enterrealm {}
+I, [2006-10-15 18:04:26 #16789]  INFO -- : Entity(test) wants to do => enterrealm {}
+I, [2006-10-15 18:04:26 #16789]  INFO -- : Entity(Start) wants to do => enterregion {}
+I, [2006-10-15 18:04:26 #16789]  INFO -- : Entity(test) wants to do => enterregion {}
+I, [2006-10-15 18:04:26 #16789]  INFO -- : Entity(Entrance) wants to do => enterroom {:room=>Entrance}
+I, [2006-10-15 18:04:26 #16789]  INFO -- : Entity(test) wants to do => enterroom {:room=>Entrance}
+I, [2006-10-15 18:04:26 #16789]  INFO -- : Game wants to handle => attemptlook {}
+I, [2006-10-15 18:04:26 #16789]  INFO -- : Entity(test) wants to do => canlook {:target=>}
+I, [2006-10-15 18:04:26 #16789]  INFO -- : Entity(Entrance) wants to do => canlook {:target=>}
+I, [2006-10-15 18:04:26 #16789]  INFO -- : Entity(Start) wants to do => canlook {:target=>}
+I, [2006-10-15 18:04:26 #16789]  INFO -- : Entity(test) wants to do => see {:target=>Entrance}
+I, [2006-10-15 18:04:26 #16789]  INFO -- : Entity(Coin) wants to do => enterroom {:room=>Entrance}
+I, [2006-10-15 18:04:29 #16789]  INFO -- : Game wants to handle => command {:data=>look}
+I, [2006-10-15 18:04:29 #16789]  INFO -- : Game wants to handle => attemptlook {:target=>}
+I, [2006-10-15 18:04:29 #16789]  INFO -- : Entity(test) wants to do => canlook {:target=>}
+I, [2006-10-15 18:04:29 #16789]  INFO -- : Entity(Entrance) wants to do => canlook {:target=>}
+I, [2006-10-15 18:04:29 #16789]  INFO -- : Entity(Start) wants to do => canlook {:target=>}
+I, [2006-10-15 18:04:29 #16789]  INFO -- : Entity(test) wants to do => see {:target=>Entrance}
+I, [2006-10-15 18:04:30 #16789]  INFO -- : Game wants to handle => command {:data=>inv}
+I, [2006-10-15 18:04:30 #16789]  INFO -- : Entity(test) wants to do => announce {:msg=>
+--------------------------------------------------------------------------------
+ [1mYour Inventory[0m
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+}
+I, [2006-10-15 18:04:31 #16789]  INFO -- : Game wants to handle => command {:data=>go n}
+I, [2006-10-15 18:04:31 #16789]  INFO -- : Game wants to handle => attemptenterportal {:portal=>a non-descript door, :room=>Hall}
+I, [2006-10-15 18:04:31 #16789]  INFO -- : Entity(Entrance) wants to do => canleaveroom {:room=>Entrance}
+I, [2006-10-15 18:04:31 #16789]  INFO -- : Entity(Hall) wants to do => canenterroom {:room=>Hall}
+I, [2006-10-15 18:04:31 #16789]  INFO -- : Entity(test) wants to do => canleaveroom {:room=>Entrance}
+I, [2006-10-15 18:04:31 #16789]  INFO -- : Entity(a non-descript door) wants to do => canenterportal {}
+I, [2006-10-15 18:04:31 #16789]  INFO -- : Entity(test) wants to do => canenterroom {:room=>Hall}
+I, [2006-10-15 18:04:31 #16789]  INFO -- : Entity(Entrance) wants to do => leaveroom {:portal=>a non-descript door, :room=>Entrance}
+I, [2006-10-15 18:04:31 #16789]  INFO -- : Entity(Coin) wants to do => leaveroom {:portal=>a non-descript door, :room=>Entrance}
+I, [2006-10-15 18:04:31 #16789]  INFO -- : Entity(test) wants to do => leaveroom {:portal=>a non-descript door, :room=>Entrance}
+I, [2006-10-15 18:04:31 #16789]  INFO -- : Entity(a non-descript door) wants to do => enterportal {:portal=>a non-descript door}
+I, [2006-10-15 18:04:31 #16789]  INFO -- : Entity(test) wants to do => enterportal {:portal=>a non-descript door}
+I, [2006-10-15 18:04:31 #16789]  INFO -- : Entity(Hall) wants to do => enterroom {:portal=>a non-descript door, :room=>Hall}
+I, [2006-10-15 18:04:31 #16789]  INFO -- : Entity(test) wants to do => enterroom {:portal=>a non-descript door, :room=>Hall}
+I, [2006-10-15 18:04:31 #16789]  INFO -- : Game wants to handle => attemptlook {}
+I, [2006-10-15 18:04:31 #16789]  INFO -- : Entity(test) wants to do => canlook {:target=>}
+I, [2006-10-15 18:04:31 #16789]  INFO -- : Entity(Hall) wants to do => canlook {:target=>}
+I, [2006-10-15 18:04:31 #16789]  INFO -- : Entity(Start) wants to do => canlook {:target=>}
+I, [2006-10-15 18:04:31 #16789]  INFO -- : Entity(test) wants to do => see {:target=>Hall}
+I, [2006-10-15 18:04:33 #16789]  INFO -- : Game wants to handle => command {:data=>go w}
+I, [2006-10-15 18:04:33 #16789]  INFO -- : Game wants to handle => attemptenterportal {:portal=>a door, :room=>Garden}
+I, [2006-10-15 18:04:33 #16789]  INFO -- : Entity(Hall) wants to do => canleaveroom {:room=>Hall}
+I, [2006-10-15 18:04:33 #16789]  INFO -- : Entity(Garden) wants to do => canenterroom {:room=>Garden}
+I, [2006-10-15 18:04:33 #16789]  INFO -- : Entity(test) wants to do => canleaveroom {:room=>Hall}
+I, [2006-10-15 18:04:33 #16789]  INFO -- : Entity(a door) wants to do => canenterportal {}
+I, [2006-10-15 18:04:33 #16789]  INFO -- : Entity(test) wants to do => canenterroom {:room=>Garden}
+I, [2006-10-15 18:04:33 #16789]  INFO -- : Entity(Hall) wants to do => leaveroom {:portal=>a door, :room=>Hall}
+I, [2006-10-15 18:04:33 #16789]  INFO -- : Entity(test) wants to do => leaveroom {:portal=>a door, :room=>Hall}
+I, [2006-10-15 18:04:33 #16789]  INFO -- : Entity(a door) wants to do => enterportal {:portal=>a door}
+I, [2006-10-15 18:04:33 #16789]  INFO -- : Entity(test) wants to do => enterportal {:portal=>a door}
+I, [2006-10-15 18:04:33 #16789]  INFO -- : Entity(Garden) wants to do => enterroom {:portal=>a door, :room=>Garden}
+I, [2006-10-15 18:04:33 #16789]  INFO -- : Entity(test) wants to do => enterroom {:portal=>a door, :room=>Garden}
+I, [2006-10-15 18:04:33 #16789]  INFO -- : Game wants to handle => attemptlook {}
+I, [2006-10-15 18:04:33 #16789]  INFO -- : Entity(test) wants to do => canlook {:target=>}
+I, [2006-10-15 18:04:33 #16789]  INFO -- : Entity(Garden) wants to do => canlook {:target=>}
+I, [2006-10-15 18:04:33 #16789]  INFO -- : Entity(Start) wants to do => canlook {:target=>}
+I, [2006-10-15 18:04:33 #16789]  INFO -- : Entity(test) wants to do => see {:target=>Garden}
+I, [2006-10-15 18:04:37 #16789]  INFO -- : Game wants to handle => command {:data=>quit}
+I, [2006-10-15 18:04:37 #16789]  INFO -- : Entity(test) wants to do => leave {}
+D, [2006-10-15 18:04:37 #16789] DEBUG -- : GameHandler::leave
+I, [2006-10-15 18:04:37 #16789]  INFO -- : Game wants to handle => leaverealm {}
+I, [2006-10-15 18:04:37 #16789]  INFO -- : Entity(Garden) wants to do => leaveroom {:room=>Garden}
+I, [2006-10-15 18:04:37 #16789]  INFO -- : Entity(test) wants to do => leaveroom {:room=>Garden}
+I, [2006-10-15 18:04:37 #16789]  INFO -- : Entity(Start) wants to do => leaveregion {}
+I, [2006-10-15 18:04:37 #16789]  INFO -- : Entity(test) wants to do => leaveregion {}
+I, [2006-10-15 18:04:37 #16789]  INFO -- : Entity(test) wants to do => leaverealm {}
+I, [2006-10-15 18:04:37 #16789]  INFO -- : #<Encumbrance:0x10258e4> wants to clear (0) timers
+I, [2006-10-15 18:04:37 #16789]  INFO -- : #<CanReceive:0x102581c> wants to clear (0) timers

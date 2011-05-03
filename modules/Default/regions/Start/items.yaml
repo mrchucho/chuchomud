@@ -1,0 +1,17 @@
+--- 
+- !ruby/object:Item 
+  _de_attrs: 
+    :weight: 1
+  character: 
+  description: "# coins"
+  logic: []
+
+  many: true
+  name: Coin
+  oid: 26
+  quantity: 90
+  region: 1
+  room: 1
+  template_id: 3
+  transient_logic: []
+

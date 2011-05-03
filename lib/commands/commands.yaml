@@ -1,0 +1,27 @@
+--- 
+go: Go
+say: Say 
+quit: Quit
+look: Look
+help: Help
+time: GameTime
+kick: Kick
+test: Bad
+get: Get
+drop: Drop
+inv: Inventory
+save: Save
+reload: Reload
+spawnitem: SpawnItem
+spawnchar: SpawnCharacter
+addlogic: AddLogic
+dellogic: DelLogic
+visual: Visual
+emote: Emote
+clear: Clear
+give: Give
+receive: Receive
+status: Status
+deleteitem: DeleteItem
+use: Use
+analyze: Analyze

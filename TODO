@@ -1,0 +1,342 @@
+* --- Really need to fix TelnetReporter!!! Because it is short-circuiting the
+logic process!!!!
+* DONE - Do I need a Config class? Perhaps a Singleton? Store module name, module dir, 
+    future options...
+* DONE - App format: chuchomud.rb -m YOUR_GAME
+* DONE - I'd like to change _de_attrs to "attributes" or "traits" or something 
+* YAML Data to be fixed: commands (DONE), logic
+* Really need to find a better way to handle "cross-cutting concerns", e.g. the
+    databases and logging. In other words, no more globals!
+    ** Singleton -- from the stdlib?
+    ** Do I need a LogCapable mixin? A DatabaseAccessor mixin?
+    ** I wonder if it's something where I can fiddle w/ a high-level construct
+    like Module or Class ala:
+    http://blogs.codehaus.org/people/rinkrank/archives/000994_annotations_in_ruby.html
+* Instead of directly getting (SOME) attribute values, we need to query for them
+    ** this is instead of using SimpleMUD's idea of Base Attributes and
+    Transient Attributes.
+    ** Issue: do ALL attributes need this? if not (and probably not) do we need
+    different names for those that need to be queried and those that don't?
+    ** Issue: do we query for all modifiers or do we store some sort of delta,
+    e.g. ACCURACY, and ACCURACY_DELTA?
+        *** TO_HIT = ACCURACY + (inject of all ACCURACY_DELTA)
+        *** TO_HIT = query all entities for ACCURACY
+        *** aren't those the same? 
+* DONE - Make different "configurations" or "games" inside the data dir -- and pass it
+    as an arg to chucho_mud. Have a "base", then "example".
+* I may've accidentally created a Message Queue! By adding the "responds_to"
+    meta to the logic classes, I've created the queues (or subjects) to which
+    the logic modules should subscribe!!
+* Need to verify that things like sight/sound are going through the game engine.
+    otherwise logic won't affect it (i.e. being deaf/blind) 
+    ** does the game handle this? or does the interface? GAME
+* DONE - (see above) Implement "sound" (complement to "vision")
+* Add /follow command/logic -- beginning of a pet?
+* Change DarkRoom/LightSource: dark room overridden by darkvision AND
+    provideslight -- darkvision is local(like goggles) and provides... is
+    room-wide (like a latern)
+* If logic has a "target" in addition to "owner", hook to target, too
+
+--------------------------------------------------------------------------------
+* If logic is always applicable (i.e. innate) but has no data (what I'm
+    considering "saveable" right now) can I make make it such that it is stored
+    in the template and loaded on at runtime? In other words, only that logic
+    which becomes entity-specific (i.e. has *data*) is "saveable"
+    ** maybe it doesn't even need to be stored in the template <- not sure...
+        *** copy list from template to char, maybe
+    ** ^ might want to move out of template, so that Entities that aren't
+        templated can use the same scheme
+
+    ?? Wouldn't logic always be "attached" to an entity UNTIL ITS REMOVED? In
+    other words, can't you always assume that it is "saveable"? The only time
+    you'd ever save it as something other than its name would be when it had
+    data, though.
+
+        --> There is some "logic" that does need to be removed when the entity
+        is written to a file (e.g. TelnetReporter). Need to investigate if this
+        is the exception... really this could be removed at logout (instead of
+        adding some special support).
+        --> I wonder if there's some code that "reattaches" stuff from the
+        template onto the class... probably don't need to do that. However,
+        still need to be able to pull in NEW stuff from the template, e.g.
+        entity.add_logic(template.all_logic - entity.logic) # i.e. the diff
+        There is... it's called update_from_template
+
+            Most likely, the issue is with the UI "logic", *sigh*
+
+    Maybe add a meta "data" that, if present, gets saved. Otherwise, it's just
+    the class name.
+
+* ~DONE - What about add_logic vs. add_existing_logic? What exactly is the difference?
+At a conceptual level: you really have stackable and non-stackable (also you
+might have replaceable and nonreplaceable). These should probably be metas.
+    if logic DOES NOT exist
+        add
+    if logic DOES exist
+        1. don't add - EXCLUSIVE_LOGIC (default?)
+        2. delete existing, add new - REPLACEABLE_LOGIC
+        3. add new, in addition to old - STACKABLE_LOGIC
+
+    Need to add meta:
+        stackable :exclusive
+        stackable :replaceable
+        stackable :stackable
+                
+--------------------------------------------------------------------------------
+    
+* something about spawnitem is hosing up saving player to file...
+* DONE - Need to pass "dellogic" message to Effect so it can show its removed message
+    ** DONE - Should *all* logic have the applied/removed message ?!
+    ** You can override the default behavior by not implementing
+        applied_message, but doing something in do_added (for example)
+* DONE - need a general purpose "say to entity" function:
+    * needs to work for char (just they see it)
+    * and room/region (all occupants see it)
+* spawnItem needs to "give" the item, so encumbrance works
+* DONE - How would a "dark" room work?
+    ** room would respond to :canlook with false
+    ** would it need to see if performer had "can see in dark"?
+* add 'look' to region, DayNight shows status?
+* DONE - get part of Encumbrance is broken
+* DONE - remember to decide whether or not to "clear" @action,@performer after
+    do_action
+* DONE - remember to fix "perfomer" bug in Encumbrance
+* Can a logic be the performer? Or should it always be the entity to which the
+    logic is attached? This would work... except that then, I can't route logic
+    messages the way I am now... can that be fixed/changed? -- it might work
+    because the performer HAS that logic. It just might be ineffecient, because
+    it won't go *directly* to the logic
+        ** won't work, because things like :effect would get sent to all
+        effects, not just the one it was intended for
+* Fix bug where timed actions tied to a char go off after the char has left the
+    room...
+* DONE - Effects that don't wear off?
+* DONE - move bmud to mud or chuchomud or whatever
+* DONE - Implement 'use' item
+    * wouldn't that just send a "use" message to logic attached
+        to item? Would it be worth creating a Usable mixin?
+* Some Proof-of-concept code:
+    * DONE - a moving character
+    * DONE - locked doors
+* DONE - PortalEntry still has named? Could move to mixin "Nameable"?
+* Document Logic "API" and Effect "API"
+* What about an Logic API addition "remove_after" ?? might be nice...
+* DONE - Transient Logic: instead of excluding from YAML::dump, *remove* it before
+    saving! Much easier.
+* DONE - clear_transient_logic - Hrm. Some way to "drop" all the logic from a char on logout?
+    * problem: TelnetReporter stays on after log-out
+* DONE - GameHandler gets 'disconnected' message from teensy mud -- HANDLE!
+* need some way to automatically return "true" if a logic doesn't...
+* DONE - kill_all_timers - need to add "kill logic timers" on player to use at logout
+* Does dellogic message need to hook to entity/performer AND :logic ??
+* DONE - Is there a way to store all the logic "hooks" on the LogicEntity??
+    * such that when you add/remove logic it hooks/clears timers?
+* Timed Actions -- get the action.performer out of the class -- use a lookup
+* DONE - Timed actions in logic
+    * LOGIC needs to hook (when)?
+    * logic can have its #clear_timer function called when deleted, del_logic
+* add do_action code to handle addlogic,removelogic, and targetted 'announce'
+    ** could targetted announce be called 'tell' and replace
+    @player.do_action(:announce)??
+* DONE - Should logic have an optional "start" command? So, when you add logic to
+    something, it can "start"/apply itself? Isn't this really like a "logic_init"
+    function?
+    ** must call 'start' after adding -- otherwise you could start something
+        that didn't get applied!
+* Need to use named params!!! Some of this stuff is just too confusing =(
+* Instead of using HasEntity
+    def performer=(p)
+        room.char,item,region=0
+        case p.kind         
+        when Room
+            room = p.oid         
+        when Character
+            char = p.oid
+        end
+    end
+    def performer
+        [room,char,item,region].find {|e| e!=0}
+    end                                                                                           
+--------------------------------------------------------------------------------
+ATTENTION!!!
+* With regards to "message_logic", need to send a message to a Logic module. So,
+is it sufficient/acceptable to have the action performer attempt to handle an
+action that the game cannot?
+    * This won't work if one entity's logic wants another entity's logic to do
+        something... Would this ever be the case?
+    * What about setting the performer as the LogicModule? The @entity (i.e.
+        logic module owner) would still be there and could be set in the data)
+        ** Also, the game could say:
+            if I can't handle the message and the performer.kind_of?(Logic)
+    * or do I just need to add an indicator to route the message?
+
+    ** Need to balance flexibility and ease of use? ask self "why" would I do
+    this? Does this call make sense in English?
+--------------------------------------------------------------------------------
+IDEA
+    * Probably need a set of "init" scripts
+    * DONE - duh, Region Logic - how to implement game-wide 'events' like day/night, weather
+    * Maybe have an inaccessible region with a "god-like" character in it
+--------------------------------------------------------------------------------
+* DONE - where? - Add help function(s) (and commands) for updating Char/Item from template
+* DONE - (not necessary) - Can spawnitem use Game#give_item
+* DONE - Could I change Connection::send_string to msg or something shorter?
+    * Remove EOL from send_string; could use 'prompt' if you don't need an EOL
+* What should happen when a logic mod. throws an exception?
+* Meta-Programming Ideas:
+    Commands: usage
+        could data be a hash? could commands be DataEntities?
+    DONE - Logic: supported_types (in ctor), reacts_to (action.type), requires
+    (action.data)
+* DONE - Added portals in look search
+* DONE - Implement autolook, show room desc.
+* Two additional types of actions: are they necessary or can you just ask the
+    object directly?
+    ** query
+    ** do 
+* Implement command ALIASES
+--------------------------------------------------------------------------------
+ORGANIZATIONAL
+    * DONE - updated net.rb (valid at vers. 2.4.0)
+    * DONE - include "license" in source 
+--------------------------------------------------------------------------------
+* Handle "already logged in"... kinda
+* DONE - Move spawn* logic to Game -- easy
+* DONE - Could logics' ctor throw an exception if it is applied to the wrong type?
+    i.e. logic meant for a room could throw an exception if you tried to init with
+    a non-room object: e.g.
+    class WindyRoom
+        def initialize(entity)
+            raise InvalidEntityException unless entity.kind_of?(Room)
+            ...
+* DONE - Ooooh. Look at implementing 'admincommands.py'
+    ** DONE - Implement 'reload' command
+    ** DONE - Implement add/del logic
+* DONE - used 'player.items.yaml' - In which DB do items ON CHARACTERS get
+    stored? Idea: have Players act like regions and have their own dir +
+    items.yaml... could be helpful down the road
+* Can I move the game "logic" (e.g. move, say, get, etc.) into a separate
+    (testable) module?
+* DONE - Fix commands: both NOT requiring / and fix last_command; add '
+* Next Steps:
+    ** Commands:
+        *** DONE - give
+        *** DONE - receive
+        *** add/del command
+        *** destroyentity
+        *** add/del attribute
+    ** hook/unhook -- observable?
+    ** DONE - Timed Actions
+    ** DONE - Thinking about how to make entities observable...
+* Need a set of util function to generate, create, add-to, etc. etc. ! Should be
+    run from irb and setup the game completely. Can they check to make sure the
+    db won't get overwritten by game? 
+    ** create room 
+    ** create portal
+    ** DONE - create item
+    ** DONE - add logic: entity.add_logic($logic_db.generate(:Logic,entity))
+* DONE - find_entity in entities.rb !!
+    Need to add find_named which checks a group of entities... failing if more
+    than one matches find; this is like BMud's Seek functions
+    ** Should portals (or portal entries) be entities?
+    ** Implement matching elsewhere -- e.g. for exits
+* Should I reject nils in collections before saving? Hrm. Should probably fix so
+    that I *don't have nils!*
+* DONE - Fix shutdown while many logged on
+* DONE - added 'Add' when loading an entity. I don't think I need 'Remove'
+    because it gets called when you Load an entity... which I do differently.
+    ** Verfiy add/remove are needed for chars, items, portals, etc. I think these DO
+        need to be added... otherwise stuff isn't getting hooked up when it is newly
+        created (e.g. you can't add portals manually and have them get hooked up)
+    ** Note: I'm not sure if it should... but this won't delete things that get
+        removed manually...
+* DONE - Save player on /quit
+* DONE - Implement Admin commands, commands with RANK
+--------------------------------------------------------------------------------
+* IMPORTANT -- can I put the command's logic IN the command, rather than
+    puttint it in the freaking game? Also, really need to look at the game
+    "engine" because it seems like that "transaction processing" could be
+    streamlined!
+
+    ** Some answer might be in the usercommands.py class... (btw, where you see
+        self.mud means $game)
+    ** Looks like: if the command just does something that never fails and never
+        effects anyone beside the player, it just does it(e.g. inventory). If
+        the command is for the player to do something (but not TO something) it
+        gets routed through the game. If the command is for the player to DO
+        something TO something, it uses the :do action and it gets routed to the
+        game which, in turn, routes it to the object/target of the action(e.g.
+        to 'arm' an item or 'attack' a character)
+
+    ** the notify process: sure seems like observable, but it could be
+        inefficient because lots of objects (potentially with lots of logic)
+        could be observing an object, when only a few need to be informed. One
+        idea would be to set the observers IN the action itself: e.g.
+        def get
+            do all the queries
+            do the action itself
+            char.add_observer(reg,room,room.chars,room.items) # etc
+            char.changed
+            char.notify_observers(Action.new(:gotitem))
+            char.del_observers # clear them all
+        end
+
+        This might make sense if the same group could be used in the query
+        portion... but how to respond back with pass/fail?
+--------------------------------------------------------------------------------
+* DONE - Implement HELP
+* DONE - update_from_template function (see above)
+    * Similar to the next todo: need something like the template, to load-up the
+    player whenever he/she logs in... that way, you can add a logic, or command
+    and it gets pickedup at login -- even if it wasn't there before
+        ** probably want to use the add_existing_logic
+* Need a way to store commands and logic on an entity as strings, then lookup in
+    database... just like with rooms, items, etc. Is it like a TemplateInstance
+    database? the commands objects are the "templates"
+    ** the char/item templates kind of do this... but what about 'data'?
+* DONE - Implement commands!
+* DONE - May need to have LogicEntity be a super-class
+* DONE - For Entities: can I assume that I always have the class, except when I'm
+    storing an entity "in" something else? (e.g. items in a player's inventory,
+    players in a room, etc.) In that case, transparently map a entity to/from
+    its oid. YES
+
+* DONE - use 'load' to dynamically load code
+* Are all "actions" actually Proc objects?? instead of do_action, use 'call'?
+* trying using 'proc' objects:
+    cmd = proc {
+        puts "running a command"
+    }
+    # ...
+    cmd.call
+
+* DONE - NO - use DelegateClass(Enumerable) for database classes
+    then you can do: $character_db = Database.new(Array.new) # for vector-based
+    or $item_db = Database.new(Hash.new) # for map-based
+
+* DONE - weakref *is* in stdlib
+* DONE - set is a type too! in stdlib; add, add? 
+* DONE - may use Ternary Trie - wow! Abbrev::abbrev
+    commands = ['north','south','say']
+    command_lookup = Abbrev::abbrev(commands)
+
+    command_lookup['sa'] => "say"
+    command_lookup['so'] => "south"
+    command_lookup['s']  => nil
+    command_lookup['n']  => "north"
+
+* DONE - instead of passing var args for actions, use a hash! so, that way the value
+    and name are viewable... rather than the naming simply being an arbitrary
+    position. PLUS the receiver can examine the contents of the action message
+    just in case.
+
+* DONE - Actions are symbols
+
+* DONE - Logic and Command are both "script" "sub-classes": which, in our case makes
+    them just ruby scripts, "load"-ed from the filesystem (rather than a
+    database)
+
+* I wonder if all the add/remove functions that match HasRoom/Region/Character,
+    etc. could be moved INTO the modules themselves...
+
+* DONE - is the class Logic even necssary?? NO

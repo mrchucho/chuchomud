@@ -1,0 +1,8 @@
+--- !ruby/object:ItemTemplate 
+name: Cup
+oid: 2
+properties: 
+  :weight: 10
+description: an empty cup
+logics:
+ - Heavy

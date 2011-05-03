@@ -1,0 +1,14 @@
+--- !ruby/object:CharacterTemplate 
+description: a pedestrian Pedestrian
+name: Pedestrian
+oid: 3
+playable: false
+logics:
+ - Encumbrance
+ - CanReceive
+ - Talkative
+ - Wandering
+properties: 
+  :encumbrance: 0
+  :maxencumbrance: 2000
+  :life: 100

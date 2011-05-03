@@ -1,0 +1,13 @@
+--- !ruby/object:CharacterTemplate 
+description: A very tired Human.
+name: Sleepy Human
+description: Wow. Even looking at this guy makes you tired.
+playable: true
+oid: 2
+logics:
+ - Tired
+ - Encumbrance
+properties: 
+  :encumbrance: 0
+  :maxencumbrance: 2000
+  :life: 100

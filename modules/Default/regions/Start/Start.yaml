@@ -1,0 +1,27 @@
+--- !ruby/object:Region 
+chars: []
+
+description: Start of BetterMUD
+items: 
+- 26
+logic: []
+
+name: Start
+observer_peers: []
+
+oid: 1
+portals: 
+- 1
+- 2
+- 3
+- 4
+- 5
+rooms: 
+- 1
+- 2
+- 3
+- 4
+saveable_logic: []
+
+transient_logic: []
+

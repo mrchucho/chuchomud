@@ -1,0 +1,9 @@
+--- !ruby/object:ItemTemplate 
+name: Lantern
+oid: 5
+description: a small, kerosene lantern
+logics:
+ - AmbientLightSource
+ - RequiresPower
+properties: 
+  :weight: 10

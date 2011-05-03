@@ -1,0 +1,12 @@
+--- !ruby/object:CharacterTemplate 
+description: A non-descript Human.
+name: Human
+oid: 1
+playable: true
+logics:
+ - Encumbrance
+ - CanReceive
+properties: 
+  :encumbrance: 0
+  :maxencumbrance: 2000
+  :life: 100
