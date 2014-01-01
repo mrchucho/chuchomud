@@ -9,12 +9,14 @@
 # Released under the terms of the GNU General Public License
 # See LICENSE file for additional information.
 
+require 'util/connection_utils'
 require 'action'
 require 'telnet_commands'
 
 class LogonHandler
     def initialize(connection)
         @connection = connection
+        @connection.extend ConnectionUtils
         @state = :init
     end
 	def enter
@@ -28,7 +30,8 @@ class LogonHandler
     def handle(data)
         case @state
         when :init
-            return unless data == 'initdone'
+          # FIXME was this just a dependency of tmud?
+            # return unless data == 'initdone'
             @connection.display("Welcome to Chucho MUD.")
             @connection.prompt(:echo)
             @connection.prompt(:zmp)

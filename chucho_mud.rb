@@ -127,7 +127,7 @@ if $0 == __FILE__
     end
     load_modules
 
-    require 'manager'
+    require 'network/manager'
     require 'game'
     require 'logger'
 
@@ -149,7 +149,7 @@ if $0 == __FILE__
     $game = load_game
     $game.setup
     $game.load_all
-    manager = NetManager.new(4000)
+    manager = NetManager.new($game, 4000)
     while $game.running?
         manager.manage
     end
