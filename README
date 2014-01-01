@@ -80,9 +80,9 @@ ACKNOWLDEGEMENTS
 ----------------
 Around the time I started work on Chucho MUD, Teensy MUD (another Ruby MUD)
 appeared. It's a great MUD, full of great ideas. Seeing as Teensy MUD's creator
-is *much* more adept at writing networking code than me, I incorporated the
-entire networking "core" into my application (see /vendor/teensymud). I also
-borrowed the idea of using YAML to store game objects. Brilliant!
+is *much* more adept at writing networking code than me, I initially
+incorporated the entire networking "core" into my application. I also borrowed
+the idea of using YAML to store game objects. Brilliant!
 
 Teensy MUD - http://sourcery.dyndns.org/teensymud/index.html
 
