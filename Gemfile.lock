@@ -1,0 +1,10 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    log4r (1.1.10)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  log4r
