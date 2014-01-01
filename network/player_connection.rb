@@ -69,6 +69,10 @@ class PlayerConnection
         @handlers.pop
         @handlers.top.enter unless @handlers.empty?
     end
+    # FIXME for backwards compat.
+    def remove_handler
+      del_handler
+    end
     def clear_handlers
         until @handlers.empty?
             @handlers.pop.leave
