@@ -28,32 +28,32 @@ def finish
 end
 
 def load_game
-    File.open(ChuchoMUDConfig.instance.module_directory+File::SEPARATOR+'game.yaml') do |file|
-        YAML::load(file)
-    end
+  File.open(File.join(ChuchoMUDConfig.instance.module_directory, 'game.yaml')) do |file|
+    YAML::load(file)
+  end
 end
 def save_game
-    File.open(ChuchoMUDConfig.instance.module_directory+File::SEPARATOR+'game.yaml','w') do |file|
+    File.open(File.join(ChuchoMUDConfig.instance.module_directory, 'game.yaml'),'w') do |file|
         YAML::dump($game,file)
     end
     $stdout.puts("dumped game")
 end
 
 def load_modules
-    module_dir = "#{ChuchoMUDConfig.instance.module_directory}/lib/".gsub('/',File::SEPARATOR)
+    module_dir = File.join(ChuchoMUDConfig.instance.module_directory, 'lib')
     module_logic_dir = module_dir+'logic'
     module_command_dir = module_dir+'commands'
-    logic_dir = 'lib'+File::SEPARATOR+'logic'
+    logic_dir = File.join('lib', 'logic')
 
     $:.unshift 'lib/commands'
     $:.unshift 
     $:.unshift module_command_dir
     $:.unshift module_logic_dir
 
-    Dir.glob(module_logic_dir+File::SEPARATOR+'*.rb') do |logic|
+    Dir.glob(File.join(module_logic_dir, '*.rb')) do |logic|
         require(logic)
     end
-    Dir.glob(logic_dir+File::SEPARATOR+'*.rb') do |logic|
+    Dir.glob(File.join(logic_dir, '*.rb')) do |logic|
         require(logic)
     end
 

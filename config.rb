@@ -17,8 +17,7 @@ class ChuchoMUDConfig
     attr_accessor :module_name
 
     def module_directory
-        @module_directory ||=
-        'modules'+File::SEPARATOR+self.module_name+File::SEPARATOR
+        @module_directory ||= File.join('modules', self.module_name)
     end
     def module_directory=(dir)
         @module_directory = dir
