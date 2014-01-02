@@ -28,19 +28,19 @@ def finish
 end
 
 def load_game
-  File.open(File.join(ChuchoMUDConfig.instance.module_directory, 'game.yaml')) do |file|
+  File.open(ChuchoMUDConfig.instance.module_directory.join('game.yaml')) do |file|
     YAML::load(file)
   end
 end
 def save_game
-    File.open(File.join(ChuchoMUDConfig.instance.module_directory, 'game.yaml'),'w') do |file|
+    File.open(ChuchoMUDConfig.instance.module_directory.join('game.yaml'),'w') do |file|
         YAML::dump($game,file)
     end
     $stdout.puts("dumped game")
 end
 
 def load_modules
-    module_dir = File.join(ChuchoMUDConfig.instance.module_directory, 'lib')
+    module_dir = ChuchoMUDConfig.instance.module_directory.join('lib')
     module_logic_dir = module_dir+'logic'
     module_command_dir = module_dir+'commands'
     logic_dir = File.join('lib', 'logic')
@@ -121,7 +121,7 @@ if $0 == __FILE__
     options = parse_args(ARGV)
     config.module_name= options.module
 
-    if not FileTest.exists?(config.module_directory) then
+    if not config.module_directory.exist? then
         $stderr.puts "#{config.module_name} does not exist"
         exit 1
     end

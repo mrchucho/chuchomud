@@ -10,16 +10,14 @@
 # See LICENSE file for additional information.
 
 require 'singleton'
+require 'pathname'
 
 class ChuchoMUDConfig
-    include Singleton
-    
-    attr_accessor :module_name
+  include Singleton
 
-    def module_directory
-        @module_directory ||= File.join('modules', self.module_name)
-    end
-    def module_directory=(dir)
-        @module_directory = dir
-    end
+  attr_accessor :module_name
+
+  def module_directory
+    @module_directory ||= Pathname.new(File.join('modules', self.module_name))
+  end
 end

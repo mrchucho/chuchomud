@@ -388,10 +388,10 @@ end
 
 class AccountDatabase < VectorDatabase
     def load_all
-        load_file(ChuchoMUDConfig.instance.module_directory+File::SEPARATOR+'accounts.yaml')
+        load_file(ChuchoMUDConfig.instance.module_directory.join("accounts.yaml"))
     end
     def save_all
-        save_file(ChuchoMUDConfig.instance.module_directory+File::SEPARATOR+'accounts.yaml',@container)
+        save_file(ChuchoMUDConfig.instance.module_directory.join('accounts.yaml'),@container)
     end
     def create(name,pass)
         oid = find_open_id
