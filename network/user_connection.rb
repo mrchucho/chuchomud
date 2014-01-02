@@ -74,6 +74,8 @@ class UserConnection < NetworkConnection
         when String
             @outputbuffer << msg
             self.blocking = true
+        when Symbol,Array
+          $stderr.puts "Unhandled message type: #{msg.inspect}"
         else
             $stderr.puts "Unknown message: #{msg}"
         end

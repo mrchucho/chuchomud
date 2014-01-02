@@ -33,7 +33,6 @@ class PlayerConnection
     # Send [+data+] to the top handler to handle.
     # However, there are some Special Cases, handle those first.
     def update(data)
-      puts "Network::PlayerConnection#update(#{data})"
         case data
         when :disconnected
             close
