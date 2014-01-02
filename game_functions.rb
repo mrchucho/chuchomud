@@ -40,7 +40,7 @@ module GameFunctions
                 char.do_action(Action.new(:error,char,
                     {:msg => "Usage: #{command.usage}"}))
             rescue => e
-                $stderr.puts("#{command.name} failed to execute: #{e}")
+                $log.error("#{command.name} failed to execute: #{e}")
             end
         else
             char.do_action(Action.new(:error,char,

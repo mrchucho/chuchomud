@@ -72,7 +72,7 @@ class Database
                 end
             end
         rescue => e
-            $stderr.puts("Error opening #{filename}: #{e}")
+            $log.error("Error opening #{filename}: #{e}")
         end
     end
     def save_file(filename,entity)
@@ -83,7 +83,7 @@ class Database
             end
             File.rename(temp,filename)
         rescue => e
-            $stderr.puts("Error saving #{filename}: #{e}; Saved temp file: #{temp}.")
+            $log.error("Error saving #{filename}: #{e}; Saved temp file: #{temp}.")
         end
     end
 private
@@ -147,7 +147,7 @@ class MapDatabase < Database
                 end
             end
         rescue => e
-            $stderr.puts("Error opening #{filename}: #{e}")
+            $log.error("Error opening #{filename}: #{e}")
         end
     end
 =end
@@ -237,7 +237,7 @@ class CharacterDatabase < TemplateInstanceDatabase
             save_file(
                  CHAR_DIR+File::SEPARATOR+"#{char.name.downcase}.yaml",char)
         rescue => e
-            $stderr.puts("Error saving #{char.name.downcase}: #{e}")
+            $log.error("Error saving #{char.name.downcase}: #{e}")
         end
     end
     def save_players
@@ -301,7 +301,7 @@ class RegionDatabase < VectorDatabase
         Dir.glob(REGION_DIR+File::SEPARATOR+'*') do |dir|
             reg = dir[dir.rindex(File::SEPARATOR)+1..-1]
             Dir.glob(dir+File::SEPARATOR+reg+'.yaml') do |file|
-                $stdout.puts("Loading #{file} from #{dir}")
+                $log.info("Loading #{file} from #{dir}")
                 load_region(dir,file)
             end
         end
@@ -340,19 +340,18 @@ class CommandDatabase
     # need to make this an array !!!
     COMMANDS_DIR = "lib/commands/".gsub!('/',File::SEPARATOR)
     def initialize
-        $stdout.puts(" **** CommandDatabase needs to be load ALL ***** ")
+        $log.info(" **** CommandDatabase needs to be load ALL ***** ")
 	File.open(COMMANDS_DIR+'commands.yaml') do |file|
         	@sym_table = YAML::load(file)
 	end
     end
     def load_all
         Dir.glob(COMMANDS_DIR+'*.rb') do |cmd|
-            $stdout.puts("Loading Command #{cmd}")
+            $log.info("Loading Command #{cmd}")
             load(cmd)
         end
     end
     def generate(cmd,char)
-        # $stdout.puts(@sym_table)
         inst = Object.const_get(@sym_table[cmd])
         if inst then
             inst.new(char) 
@@ -376,7 +375,7 @@ class LogicDatabase
     end
     def load_all
         Dir.glob(LOGICS_DIR+'*.rb') do |logic|
-            $stdout.puts("Loading Logic #{logic}")
+            $log.info("Loading Logic #{logic}")
             load(logic)
         end
     end

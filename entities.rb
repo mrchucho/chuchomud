@@ -219,7 +219,6 @@ class LogicEntity < Entity
                 # $evt_log.debug("Will #{logic} handle #{action}?")
                 break if not logic.do_action(action)
             rescue => e
-                $stderr.puts("#{logic} threw exception #{e} while doing #{action}")
                 $log.error("#{logic} threw exception #{e} while doing #{action}")
             end
         end

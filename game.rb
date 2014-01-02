@@ -123,7 +123,7 @@ class Game
         when :attemptuseitem
             use_item(action.performer,action.data[:item])
         else
-            $stderr.puts("Game cannot handle => #{action.type}")
+            $log.error("Game cannot handle => #{action.type}")
             # -------------------------------------------------------------------
             # This is kind of a Hack for message_logic... see TODO
             # -------------------------------------------------------------------

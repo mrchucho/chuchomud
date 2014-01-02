@@ -52,7 +52,7 @@ class Listener < NetworkConnection
         @server.connections << self
         true
     rescue Exception => e
-        $stderr.puts "Listener error: #{e}"
+        $log.error "Listener error: #{e}"
         false
     end
 

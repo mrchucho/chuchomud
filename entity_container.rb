@@ -21,7 +21,7 @@ module HasEntity
             when Region.to_s
                 $region_db
             else
-                $stderr.puts("@{entity_type} not found")
+                $log.error("@{entity_type} not found")
                 nil
             end
         if @entity_logic!=nil then

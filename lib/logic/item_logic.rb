@@ -126,7 +126,7 @@ class ProvidesAmbientLight < Logic
         when :leaveroom
             @room.del_attribute(:illuminated)
         else 
-            $stderr.puts("Why did I get #{@action}?")
+            $log.error("Why did I get #{@action}?")
         end
         true
     end

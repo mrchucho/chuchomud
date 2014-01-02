@@ -162,7 +162,7 @@ class Poisoned < Logic
     end
 
     def do_added
-        $stdout.puts("#{self.entity} poisoned!")
+        $evt_log.debug("#{self.entity} poisoned!")
         apply_poison
         send_poison_action
         @starts = $game.time

@@ -26,7 +26,7 @@ class UserConnection < NetworkConnection
         @server.connections << self
         true
     rescue Exception => e
-        $stderr.puts "UserConnection error: #{e}"
+        $log.error "UserConnection error: #{e}"
         false
     end
     def handle_input
@@ -43,7 +43,7 @@ class UserConnection < NetworkConnection
         changed
         notify_observers(buffer.chomp)
     rescue Exception => e
-        $stderr.puts "Error: #{e}" unless e.kind_of?(EOFError)
+        $log.error "Error: #{e}" unless e.kind_of?(EOFError)
         self.closing = true
         changed
         notify_observers(:disconnected)
@@ -75,9 +75,9 @@ class UserConnection < NetworkConnection
             @outputbuffer << msg
             self.blocking = true
         when Symbol,Array
-          $stderr.puts "Unhandled message type: #{msg.inspect}"
+          $log.error "Unhandled message type: #{msg.inspect}"
         else
-            $stderr.puts "Unknown message: #{msg}"
+            $log.error "Unknown message: #{msg}"
         end
     end
 end

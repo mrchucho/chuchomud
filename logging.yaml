@@ -1,0 +1,32 @@
+log4r_config:
+    loggers:
+      - name: event_log
+        level:  DEBUG
+        outputters:
+          - console
+          - event_log
+      - name: game_log
+        level:  DEBUG
+        outputters:
+          - console
+          - game_log
+
+    outputters:
+      - type: StdoutOutputter
+        name: console
+        formatter: &format_config
+          date_pattern: '%Y-%m-%d %H:%M:%S'
+          pattern: '%d %l: %m'
+          type: PatternFormatter
+
+      - type: FileOutputter
+        name: event_log
+        filename: "logs/event.log"
+        formatter:
+          <<: *format_config
+
+      - type: FileOutputter
+        name: game_log
+        filename: "logs/game.log"
+        formatter:
+          <<: *format_config

@@ -61,7 +61,7 @@ class DarkRoom < Logic
 
 private
     def cansee?(char)
-        $stdout.puts("Can #{char} see? #{self.entity.is?(:illuminated)}")
+        $evt_log.debug("Can #{char} see? #{self.entity.is?(:illuminated)}")
         char.has?(:darkvision) or self.entity.is?(:illuminated)
     end
 end

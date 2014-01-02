@@ -65,7 +65,7 @@ class TelnetReporter
         when :error
             @connection.display(action.data[:msg])
         else
-            # $stderr.puts("Unknown #{@action}")
+            # $log.error("Unknown #{@action}")
             # should only return false if *can't*
             #result = false
         end

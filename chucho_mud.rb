@@ -129,14 +129,15 @@ if $0 == __FILE__
 
     require 'network/manager'
     require 'game'
-    require 'logger'
+    require 'log4r'
+    require 'log4r/yamlconfigurator'
 
     # ----------------------------------------
 
-    $log = Logger.new('logs/game_log','daily')
-    $log.datetime_format = "%Y-%m-%d %H:%M:%S "
-    $evt_log = Logger.new('logs/event_log','daily')
-    $evt_log.datetime_format = "%Y-%m-%d %H:%M:%S "
+    log4r_config = YAML.load_file(File.join(File.dirname(__FILE__), "logging.yaml"))
+    Log4r::YamlConfigurator.decode_yaml(log4r_config['log4r_config'])
+    $log = Log4r::Logger["game_log"]
+    $evt_log = Log4r::Logger["event_log"]
 
     srand Time.now.to_i
 
